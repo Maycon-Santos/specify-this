@@ -1,11 +1,27 @@
 #! /usr/bin/env node
 
-// var args = process.argv.splice(2, process.argv.length -1).join(' ')
+const path = require('path')
 
 const config = require('./load-config')
 
-const { exec } = require('child_process')
+const cmd = require("node-cmd")
 
-console.log(config)
+const processRef = cmd.get(`
+  cd ${path.resolve(__dirname, '../')}
+  export ROOT_PATH=${process.cwd()}
+  export DOCS_PATH=${path.resolve(process.cwd(), config.path)}
+  npm run start
+`)
 
-// exec('yarn react-scripts start')
+const debug = false
+let dataLine = ''
+
+if (debug) {
+  processRef.stdout.on('data', data => {
+      dataLine += data
+      if (dataLine[dataLine.length-1] === '\n') {
+        console.log(dataLine)
+      }
+    }
+  )
+}
