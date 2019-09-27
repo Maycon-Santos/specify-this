@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 const ACTION_SEARCH = 'header/SEARCH'
 
 // Action creators
-export const search = (search) => ({
+export const search = search => ({
   type: ACTION_SEARCH,
   search,
 })
@@ -23,6 +23,3 @@ export default (state = INITIAL_STATE, action) => {
       return state
   }
 }
-
-// Selectors
-export const searchSelector = ({ header }) => header.search

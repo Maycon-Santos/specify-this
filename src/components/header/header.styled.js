@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { lighten } from 'polished'
+import { lighten, rgba } from 'polished'
 
 import { colors } from '../../theme/colors'
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 45px;
   border-bottom: 1px ${colors.darkenBorder} solid;
   background-color: ${colors.darkenBackground};
 `
@@ -32,23 +32,45 @@ export const MenuButton = styled.button`
   }
 `
 
+export const SearchWrapper = styled.div`
+  position: relative;
+  height: 100%;
+  svg{
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    .icon-path{
+      fill: ${rgba(colors.foreground, .7)};
+    }
+  }
+`
+
 export const SearchInput = styled.input`
-  width: 251px;
+  width: 250px;
   height: 100%;
   border-width: 0 1px 0 0;
   border-color: ${colors.darkenBorder};
   border-style: solid;
-  padding: 0 20px;
+  padding: 0 15px 0 47px;
   outline: none;
   box-sizing: border-box;
   margin-right: 20px;
-  font-size: 16px;
+  font-size: 13px;
   color: ${colors.foreground};
   text-transform: capitalize;
   background-color: ${colors.selection};
   &::placeholder{
-    opacity: .7;
-    color: ${colors.foreground};
+    color: ${rgba(colors.foreground, .7)};
+  }
+  &:valid{
+    + svg{
+      .icon-path{
+        fill: ${colors.foreground};
+      }
+    }
   }
   &:hover{
     background-color: ${lighten(.04, colors.currentLine)};
@@ -60,4 +82,5 @@ export const SearchInput = styled.input`
 
 export const Title = styled.h1`
   color: ${colors.comment};
+  font-size: 15px;
 `
