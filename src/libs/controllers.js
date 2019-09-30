@@ -33,7 +33,7 @@ export function isArray (control) {
   )
 }
 
-export function extractControlType (controls) {
+export function extractControllerType (controls) {
   return Object.fromEntries(
     Object.keys(controls).map(controlName => {
       const control = controls[controlName]
@@ -63,7 +63,7 @@ export function extractControlType (controls) {
       }
 
       if (isObject(control)) {
-        return [controlName, extractControlType(control)]
+        return [controlName, extractControllerType(control)]
       }
     })
   )

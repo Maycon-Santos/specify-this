@@ -2,10 +2,10 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { HeaderView } from './header.view'
-import { search } from './header.state'
+import { setSearch } from '../../store/modules/search'
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  search,
+  setSearch,
 }, dispatch)
 
 export const Header = connect(

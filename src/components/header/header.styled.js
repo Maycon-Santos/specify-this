@@ -1,6 +1,5 @@
-import styled from 'styled-components'
 import { lighten, rgba } from 'polished'
-
+import styled from 'styled-components'
 import { colors } from '../../theme/colors'
 
 export const Container = styled.div`
@@ -60,7 +59,6 @@ export const SearchInput = styled.input`
   margin-right: 20px;
   font-size: 13px;
   color: ${colors.foreground};
-  text-transform: capitalize;
   background-color: ${colors.selection};
   &::placeholder{
     color: ${rgba(colors.foreground, .7)};

@@ -1,17 +1,9 @@
 import React, { Component } from 'react'
-
-import {
-  Container,
-  MenuButton,
-  SearchWrapper,
-  SearchInput,
-  Title,
-} from './header.styled'
-
 import { SearchIcon } from '../icons/search-icon'
+import { Container, SearchInput, SearchWrapper, Title } from './header.styled'
 
 export class HeaderView extends Component {
-  onChangeSearch = e => this.props.search(e.target.value)
+  onChangeSearch = e => this.props.setSearch(e.target.value)
 
   render () {
     return (
